@@ -128,3 +128,77 @@
   128  cd 01-Docker/
   129  ls
   130  history > Day1_History.txt 
+  131  ls
+  132  cd ..
+  133  ls
+  134  git add . ; git commit -m "02-Dockerfile"
+  135  git pull 
+  136  ls
+  137  cat 01-Docker/Day1_History.txt 
+  138  git add . ; git commit -m "02-Dockerfile"
+  139  git add . ; git commit -m "02-Dockerfile" ; git push 
+  140  ls
+  141  cd 02-Dockerfile/
+  142  ls
+  143  cd apache/
+  144  ls
+  145  mkdir v1 v2 
+  146  ls
+  147  cp -rf Dockerfile v2/
+  148  mv Dockerfile v1/
+  149  ls
+  150  cd v2/
+  151  ls
+  152  vim index.html
+  153  ls
+  154  vim Dockerfile 
+  155  ls
+  156  docker build -t testapache:v2  . 
+  157  docker images 
+  158  docker ps 
+  159  docker run -d --name apache-test-2 testapache:v2
+  160  curl 172.17.0.2
+  161  curl 172.17.0.3
+  162  docker images 
+  163  docker ps 
+  164  ls
+  165  cd ..
+  166  ls
+  167  cp -rf v2 v3
+  168  ls
+  169  cd v3/
+  170  ls
+  171  vim index.html 
+  172  ls
+  173  vim Dockerfile 
+  174  ls
+  175  docker build -t testapache:v3  . 
+  176  docker run -d --name apache-test-3 testapache:v3
+  177  docker ps 
+  178  curl telnet://172.17.0.3:3306
+  179  curl -vvv telnet://172.17.0.3:3306
+  180  curl -vvv telnet://172.17.0.3:80
+  181  cd ..
+  182  ls
+  183  cp -rf v3 v4
+  184  ls
+  185  cd v4/
+  186  ls
+  187  vim index.html 
+  188  ls
+  189  vim Dockerfile 
+  190  docker build -t testapache:v4  . 
+  191  docker run -d --name apache-test-4 testapache:v4
+  192  docker ps 
+  193  curl -vvv telnet://172.17.0.5:80
+  194  curl -vvv telnet://172.17.0.5:8081
+  195  curl -vvv telnet://172.17.0.5:8080
+  196  curl -vvv 172.17.0.5:80
+  197  ls
+  198  cd ..
+  199  ls
+  200  cd ..
+  201  ls
+  202  cd ..
+  203  ls
+  204  history > 01-Docker/Day1_History.txt 
