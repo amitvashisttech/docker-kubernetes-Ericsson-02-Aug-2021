@@ -92,3 +92,39 @@
    92  cd 01-Docker/
    93  ls
    94  history > Day1_History.txt
+   95  cd ..
+   96  ls
+   97  git config --global credential.helper 'cache --timeout=360000'
+   98  git add . ; git commit -m "01-Docker"
+   99  git push 
+  100  docker search https://github.com/amitvashisttech/docker-kubernetes-Ericsson-02-Aug-2021.git
+  101  docker search busybox 
+  102  ls
+  103  docker images
+  104  docker run -it ubuntu:21.04
+  105  docker run -it ubuntu:16.04
+  106  ls
+  107  cd 01-Docker/
+  108  ls
+  109  cd ..
+  110  ls
+  111  mkdir 02-Dockerfile/apache -p 
+  112  cd 02-Dockerfile/apache/
+  113  ls
+  114  vim Dockerfile
+  115  ls
+  116  docker build -t testapache:v1 
+  117  docker build -t testapache:v1  . 
+  118  docker images 
+  119  docker run -d --name apache-test-1 testapache:v1
+  120  docker ps 
+  121  docker inspect apache-test-1
+  122  curl 172.17.0.2
+  123  ls
+  124  cd ..
+  125  ls
+  126  cd ..
+  127  ls
+  128  cd 01-Docker/
+  129  ls
+  130  history > Day1_History.txt 
