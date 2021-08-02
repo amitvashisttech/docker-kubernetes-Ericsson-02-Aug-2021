@@ -1,0 +1,94 @@
+    1  git clone https://github.com/amitvashisttech/docker-kubernetes-Ericsson-02-Aug-2021.git
+    2  ls
+    3  cd docker-kubernetes-Ericsson-02-Aug-2021/
+    4  s
+    5  ls
+    6  cd 00-Setup/
+    7  ls
+    8  vim install-docker.sh 
+    9  ls
+   10  ./install-docker.sh 
+   11  docker version 
+   12  history 
+   13  ls
+   14  cat install-docker.sh 
+   15  apt-get install  docker-ce
+   16  apt-get update && apt-get install -y docker-ce=$(apt-cache madison docker-ce | grep 17.03 | head -1 | awk '{print $3}')
+   17  cd 
+   18  ls
+   19  docker version
+   20  docker images 
+   21  docker container ls 
+   22  docker run ubuntu echo "Welcome to docker demo."
+   23  docker images 
+   24  docker pull ubuntu:16.04
+   25  docker images 
+   26  docker ps 
+   27  docker container ls 
+   28  docker container ls -a
+   29  docker ps 
+   30  docker ps -a
+   31  docker run busybox echo "Hello World"
+   32  docker run busybox echo "Hello World - 2"
+   33  docker login 
+   34  docker logout 
+   35  docker pull amitvashist7/myapache
+   36  docker pull amitvashist7/myapache:v1 
+   37  docker pull amitvashist7/apache-ex4
+   38  docker login 
+   39  docker pull amitvashist7/apache-ex4
+   40  docker logout 
+   41  docker images 
+   42  docker run ubuntu cat /etc/os-release
+   43  docker run ubuntu:16.04 cat /etc/os-release
+   44  docker run ubuntu:21.04 cat /etc/os-release
+   45  docker run centos:7 cat /etc/os-release
+   46  docker ps 
+   47  docker ps -l
+   48  docker ps -l -q
+   49  docker inspect 902d3ca6153c
+   50  docker run -it ubuntu
+   51  docker ps 
+   52  docker run -it ubuntu
+   53  docker ps 
+   54  docker attach 67bb2ce5ce68
+   55  docker ps 
+   56  docker attach 67bb2ce5ce68
+   57  docker ps 
+   58  docker ps -a
+   59  docker attach 67bb2ce5ce68
+   60  docker start 67bb2ce5ce68
+   61  docker ps 
+   62  docker attach 67bb2ce5ce68
+   63  docker run -it --name test-1 ubuntu /bin/bash
+   64  docker ps 
+   65  docker kill test-1
+   66  docker ps -a
+   67  history 
+   68  docker run -it --name test-2 ubuntu /bin/bash
+   69  docker run -itd --name test-2 ubuntu /bin/bash
+   70  docker run -itd --name test-3 ubuntu /bin/bash
+   71  docker run -itd --name test-4 ubuntu /bin/bash
+   72  docker run -itd --name test-5 ubuntu /bin/bash
+   73  docker ps 
+   74  docker run -d amitvashist7/python-webapp:v1
+   75  docker ps 
+   76  docker inspect 35f4e6d5e784
+   77  curl 172.17.0.8:8081
+   78  curl 172.17.0.8:8081/info
+   79  docker ps 
+   80  curl 172.17.0.8:8081/info
+   81  docker ps 
+   82  docker ps -q
+   83  docker kill $(docker ps -q)
+   84  docker rm $(docker ps -q)
+   85  docker rm $(docker ps -aq)
+   86  docker ps -a 
+   87  ls
+   88  cd docker-kubernetes-Ericsson-02-Aug-2021/
+   89  ls
+   90  mkdir 01-Docker
+   91  ls
+   92  cd 01-Docker/
+   93  ls
+   94  history > Day1_History.txt
