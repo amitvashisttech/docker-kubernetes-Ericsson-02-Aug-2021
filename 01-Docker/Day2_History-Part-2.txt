@@ -176,3 +176,35 @@
   176  docker exec -it 02-wordpress_mysql_1 mysql -u root -p
   177  ls
   178  history > 01-Docker/Day2_History-Part-2.txt 
+
+
+ 229  cd 03-Docker-Registry/
+  230  ls
+  231  vim docker-compose.yaml
+  232  ls
+  233  rm 1
+  234  docker-compose up -d
+  235  docker-compose ps
+  236  docker images
+  237  docker tag 5e038f5f0464 localhost:8080/amitvashist7/python-web-app:v2
+  238  docker tag 422fcba34e36 localhost:8080/amitvashist7/python-web-app:v3
+  239  docker images
+  240  docker push localhost:8080/amitvashist7/python-web-app:v2
+  241  docker push localhost:8080/amitvashist7/python-web-app:v3
+  242  docker tag 10915b3b64f7 localhost:8080/amitvashist7/myapache:latest
+  243  docker push localhost:8080/amitvashist7/myapache:latest
+  244  history | grep -i tag
+  245  docker tag 5e038f5f0464 localhost:8080/test/python-web-app:v3
+  246  docker tag 5e038f5f0464 localhost:8080/test/python-web-app:v2
+  247  docker images
+  248  docker push localhost:8080/test/python-web-app:v2
+  249  docker push localhost:8080/test/python-web-app:v3
+  250  ls
+  251  tree registry-data/
+  252  ls
+  253  docker-compose kill
+  254  docker-compose rm
+  255  ls
+  256  du -sh registry-data/
+  257  rm -rf registry-data/
+
