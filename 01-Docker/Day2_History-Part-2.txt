@@ -50,3 +50,59 @@
    50  ls
    51  history 
    52  history > Day2_History-Part-2.txt 
+   53  cd ..
+   54  ls
+   55  git add . ; git commit -m "Events"; git push 
+   56  ls
+   57  ks
+   58  ls
+   59  mkidr 03-DockerCompose
+   60  mkdir -p 03-DockerCompose/00-Setup
+   61  vim 03-DockerCompose/00-Setup/README.md
+   62  cat 03-DockerCompose/00-Setup/README.md
+   63  sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+   64  chmod +x /usr/local/bin/docker-compose
+   65  docker-compose version
+   66  ls
+   67  cd 03-DockerCompose/
+   68  ls
+   69  mkdir 01-Apache
+   70  ls
+   71  cd 01-Apache/
+   72  ls
+   73  cd ../
+   74  cd ..
+   75  ls
+   76  cd 01-Docker/
+   77  ls
+   78  cd ../02-Dockerfile/apache/
+   79  ls
+   80  cd v4/
+   81  ls
+   82  docker build -t myapache:v1 .
+   83  ls
+   84  docker images 
+   85  cd ../../../03-DockerCompose/01-Apache/
+   86  ls
+   87  vim docker-compose.yaml
+   88  ls
+   89  docker-compose up -d 
+   90  docker-compose ps
+   91  vim docker-compose.yaml 
+   92  docker-compose up -d 
+   93  docker-compose ps
+   94  docker ps 
+   95  vim docker-compose.yaml 
+   96  docker-compose up -d 
+   97  docker ps 
+   98  docker inspect 01-apache_mytest-3_1
+   99  ls
+  100  docker-compose up -d 
+  101  vim docker-compose.yaml 
+  102  docker-compose up -d 
+  103  docker-compose ps 
+  104  cd ../../
+  105  ls
+  106  history 
+  107  ls
+  108  history > 01-Docker/Day2_History-Part-2.txt 
