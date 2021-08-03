@@ -213,89 +213,32 @@
   213  ls
   214  tree .
   215  ls
-  216  cd docker-kubernetes-Ericsson-02-Aug-2021/
-  217  ls
-  218  cd 02-Dockerfile/
+  216  docker ps 
+  217  docker inspect 555007e1bd75
+  218  cd /var/lib/docker/volumes/my-vol/_data
   219  ls
-  220  mkdir python-web-app
-  221  cd python-web-app/
-  222  ls
-  223  vim app.py 
-  224  ls
-  225  vim req.txt
-  226  ls
-  227  vim Dockerfile
-  228  ls
-  229  docker build -t python-web-app:v1  . 
-  230  docker image 
-  231  docker images
-  232  docker run -d --name python-test-1 python-web-app:v1
-  233  docker ps 
-  234  docker inspect bb5218214b63
-  235  curl 172.17.0.2
-  236  curl 172.17.0.2:8081 
-  237  curl 172.17.0.2:8081/hello
-  238  curl 172.17.0.2:8081/info
+  220  cat hello.txt 
+  221  date >> hello.txt 
+  222  hostname >> hello.txt 
+  223  ls
+  224  cd ..
+  225  ls
+  226  cd 2898eb5ac49ebf4cff6c3c315011c604dfadc8ba313b7f4093d704494bdcc94f/
+  227  ls
+  228  cd _data/
+  229  ls
+  230  cat hello.txt 
+  231  cd 
+  232  docker attach test-5
+  233  ls
+  234  docker ps 
+  235  docker attach datavol
+  236  docker kill $(docker ps -aq) ; docker rm $(docker ps -aq)
+  237  ls
+  238  cd docker-kubernetes-Ericsson-02-Aug-2021/
   239  ls
-  240  cd ..
+  240  rm hello.txt 
   241  ls
-  242  cd ..
+  242  cd 01-Docker/
   243  ls
-  244  docker images 
-  245  docker push python-web-app:v1 
-  246  docker login 
-  247  docker push python-web-app:v1 
-  248  docker images 
-  249  docker tag 43f028686954 amitvashist7/python-web-app:v1
-  250  docker images 
-  251  docker push amitvashist7/python-web-app:v1 
-  252  docker logout 
-  253  ls
-  254  docker images 
-  255  docker rmi 43f028686954
-  256  docker kill $(docker ps -aq)
-  257  docker em $(docker ps -aq)
-  258  docker rm $(docker ps -aq)
-  259  docker rmi 43f028686954
-  260  docker rmi 43f028686954 --force
-  261  ls
-  262  docker image s
-  263  docker images
-  264  docker run -d --name test-py-1 amitvashist7/python-web-app:v1
-  265  docker ps 
-  266  docker images 
-  267  docker tag 43f028686954 amitvashist7/python-web-app:latest
-  268  docker images 
-  269  docker login 
-  270  docker push amitvashist7/python-web-app:latest
-  271  ls
-  272  cd 02-Dockerfile/
-  273  ls
-  274  cd python-web-app/
-  275  ls
-  276  vim app.py 
-  277  ls
-  278  docker build -t python-web-app:v2  . 
-  279  ls
-  280  docker run -d --name test-py-2 amitvashist7/python-web-app:v2
-  281  docker run -d --name test-py-2 amitvashist7/python-web-app:v1
-  282  docker images 
-  283  docker run -d --name test-py-3 python-web-app:v2
-  284  docker ps 
-  285  docker inspect 99782288b283
-  286  curl 172.17.0.4:8081
-  287  curl 172.17.0.4:8081/hello
-  288  curl 172.17.0.4:8081/info
-  289  ls
-  290  docker images 
-  291  docker tag 5e038f5f0464 amitvashist7/python-web-app:latest
-  292  docker images 
-  293  docker push amitvashist7/python-web-app:latest
-  294  ls
-  295  docker logout 
-  296  ls
-  297  cd ../../
-  298  ls
-  299  cd 01-Docker/
-  300  ls
-  301  history > Day2_History.txt 
+  244  history > Day2_History.txt 
