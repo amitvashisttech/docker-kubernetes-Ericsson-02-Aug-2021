@@ -213,32 +213,164 @@
   213  ls
   214  tree .
   215  ls
-  216  docker ps 
-  217  docker inspect 555007e1bd75
-  218  cd /var/lib/docker/volumes/my-vol/_data
+  216  cd docker-kubernetes-Ericsson-02-Aug-2021/
+  217  ls
+  218  cd 02-Dockerfile/
   219  ls
-  220  cat hello.txt 
-  221  date >> hello.txt 
-  222  hostname >> hello.txt 
-  223  ls
-  224  cd ..
-  225  ls
-  226  cd 2898eb5ac49ebf4cff6c3c315011c604dfadc8ba313b7f4093d704494bdcc94f/
-  227  ls
-  228  cd _data/
-  229  ls
-  230  cat hello.txt 
-  231  cd 
-  232  docker attach test-5
-  233  ls
-  234  docker ps 
-  235  docker attach datavol
-  236  docker kill $(docker ps -aq) ; docker rm $(docker ps -aq)
-  237  ls
-  238  cd docker-kubernetes-Ericsson-02-Aug-2021/
+  220  mkdir python-web-app
+  221  cd python-web-app/
+  222  ls
+  223  vim app.py 
+  224  ls
+  225  vim req.txt
+  226  ls
+  227  vim Dockerfile
+  228  ls
+  229  docker build -t python-web-app:v1  . 
+  230  docker image 
+  231  docker images
+  232  docker run -d --name python-test-1 python-web-app:v1
+  233  docker ps 
+  234  docker inspect bb5218214b63
+  235  curl 172.17.0.2
+  236  curl 172.17.0.2:8081 
+  237  curl 172.17.0.2:8081/hello
+  238  curl 172.17.0.2:8081/info
   239  ls
-  240  rm hello.txt 
+  240  cd ..
   241  ls
-  242  cd 01-Docker/
+  242  cd ..
   243  ls
-  244  history > Day2_History.txt 
+  244  docker images 
+  245  docker push python-web-app:v1 
+  246  docker login 
+  247  docker push python-web-app:v1 
+  248  docker images 
+  249  docker tag 43f028686954 amitvashist7/python-web-app:v1
+  250  docker images 
+  251  docker push amitvashist7/python-web-app:v1 
+  252  docker logout 
+  253  ls
+  254  docker images 
+  255  docker rmi 43f028686954
+  256  docker kill $(docker ps -aq)
+  257  docker em $(docker ps -aq)
+  258  docker rm $(docker ps -aq)
+  259  docker rmi 43f028686954
+  260  docker rmi 43f028686954 --force
+  261  ls
+  262  docker image s
+  263  docker images
+  264  docker run -d --name test-py-1 amitvashist7/python-web-app:v1
+  265  docker ps 
+  266  docker images 
+  267  docker tag 43f028686954 amitvashist7/python-web-app:latest
+  268  docker images 
+  269  docker login 
+  270  docker push amitvashist7/python-web-app:latest
+  271  ls
+  272  cd 02-Dockerfile/
+  273  ls
+  274  cd python-web-app/
+  275  ls
+  276  vim app.py 
+  277  ls
+  278  docker build -t python-web-app:v2  . 
+  279  ls
+  280  docker run -d --name test-py-2 amitvashist7/python-web-app:v2
+  281  docker run -d --name test-py-2 amitvashist7/python-web-app:v1
+  282  docker images 
+  283  docker run -d --name test-py-3 python-web-app:v2
+  284  docker ps 
+  285  docker inspect 99782288b283
+  286  curl 172.17.0.4:8081
+  287  curl 172.17.0.4:8081/hello
+  288  curl 172.17.0.4:8081/info
+  289  ls
+  290  docker images 
+  291  docker tag 5e038f5f0464 amitvashist7/python-web-app:latest
+  292  docker images 
+  293  docker push amitvashist7/python-web-app:latest
+  294  ls
+  295  docker logout 
+  296  ls
+  297  cd ../../
+  298  ls
+  299  cd 01-Docker/
+  300  ls
+  301  history > Day2_History.txt 
+  302  cd ..
+  303  ls
+  304  git add . ; git commit -m "02-Dockerfile" ; git push 
+  305  git config --global credential.helper 'cache --timeout=360000'
+  306  ls
+  307  docker volume ls 
+  308  docker volume create my-vol 
+  309  ls
+  310  docker volume ls 
+  311  docker volume inspect my-vol
+  312  cd /var/lib/docker/
+  313  ls
+  314  cd volumes/
+  315  ls
+  316  cat metadata.db 
+  317  xterm-256colorxterm-256colorxterm-256colorxterm-256color
+  318  ls
+  319  cd my-vol/
+  320  ls
+  321  cd _data/
+  322  ls
+  323  cd ..
+  324  cd 
+  325  ls
+  326  docker images 
+  327  docker volume ls 
+  328  docker run -it --name test-vol-1 --mount source=my-vol,target=/amit ubuntu:16.04
+  329  docker run -it --name test-vol-1 -v source=my-vol,target=/amit ubuntu:16.04
+  330  docker run -it --name test-vol-2 -v my-vol:/amit ubuntu:16.04
+  331  ls
+  332  docker kill $(docker ps -aq)
+  333  docker rm $(docker ps -aq)
+  334  docker volume ls 
+  335  docker ps -a
+  336  docker run -it --name test-vol-3 -v my-vol:/var/www/amit ubuntu:16.04
+  337  docker kill $(docker ps -aq)
+  338  docker rm $(docker ps -aq)
+  339  docker volume ls 
+  340  docker run -itd --name test-vol-4 -v /var/www/amit ubuntu:16.04
+  341  docker ps 
+  342  docker inspect test-vol-4
+  343  docker volume ls 
+  344  docker ps 
+  345  docker attach 65c63b36e6a0
+  346  pwd
+  347  ls
+  348  cd docker-kubernetes-Ericsson-02-Aug-2021/
+  349  ls
+  350  pwd
+  351  docker run -itd --name test-vol-5 -v /root/docker-kubernetes-Ericsson-02-Aug-2021:/var/www/amit ubuntu:16.04
+  352  docker run -itd --name test-vol-6 -v /root/docker-kubernetes-Ericsson-02-Aug-2021:/var/www/amit:ro ubuntu:16.04
+  353  cd 
+  354  docker ps 
+  355  docker attach test-vol-5
+  356  docker attach test-vol-6
+  357  history 
+  358  docker run -itd --name datavol -v /var/www/amit -v /opt/app/amit -v /var/log/amit -v /etc/myapp/amit  ubuntu:16.04
+  359  docker ps 
+  360  docker inspect datavol
+  361  ls
+  362  docker run -itd --name test-1 --volumes-from data  ubuntu:16.04
+  363  docker run -itd --name test-2 --volume-from data  ubuntu:16.04
+  364  docker ps 
+  365  docker run -itd --name test-3 --volumes-from datavol  ubuntu:16.04
+  366  docker run -itd --name test-4 --volumes-from datavol  ubuntu:16.04
+  367  docker run -itd --name test-5 --volumes-from datavol  ubuntu:16.04
+  368  docker ps 
+  369  docker inspect test-5
+  370  docker inspect test-4
+  371  docker inspect test-3
+  372  docker attach test-3
+  373  ls
+  374  cd docker-kubernetes-Ericsson-02-Aug-2021/
+  375  ls
+  376  history > 01-Docker/Day2_History.txt 
