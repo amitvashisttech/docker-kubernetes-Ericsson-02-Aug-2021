@@ -1,0 +1,52 @@
+    1  ls
+    2  docker ps 
+    3  docker events 
+    4  docker events --since '2021-08-03'
+    5  docker events --since '2021-08-03T07:33:58.909729818Z'
+    6  docker events --since '2021-08-03T07:33:58.909729818Z' --until '2021-08-03T07:37:05.013851088Z'
+    7  docker events --since '5m'
+    8  docker events --filter 'event=stop'
+    9  docker events --filter 'container=test'
+   10  docker events --format '{{json .}}'
+   11  ls
+   12  docker ps 
+   13  docker logs test-2
+   14  docker logs -f test-2
+   15  ls
+   16  docker run --name test-log -d busybox sh -c "while true; do $(echo date); sleep 1;done"
+   17  docker ps 
+   18  docker logs test-log
+   19  docker logs -f test-log
+   20  ls
+   21  docker ps 
+   22  docker kill $(docker ps -aq) 
+   23  docker rm $(docker ps -aq) 
+   24  ls
+   25  docker images 
+   26  docker save python-web-app:v3 > python-web-app-v3.tar
+   27  docker save --output python-web-app-v2.tar python-web-app:v2
+   28  ls
+   29  du -sh 
+   30  du -sh * 
+   31  file python-web-app-v2.tar 
+   32  ls
+   33  docker images 
+   34  docker images -q
+   35  docker rmi $(docker images -q) --force
+   36  docker images 
+   37  ls
+   38  docker load < python-web-app-v3.tar
+   39  docker images 
+   40  docker load --input python-web-app-v2.tar 
+   41  docker images 
+   42  docker run --name test-1 -d -P python-web-app:v3
+   43  docker run --name test-2 -d -P python-web-app:v2
+   44  docker ps 
+   45  sl
+   46  ls
+   47  cd docker-kubernetes-Ericsson-02-Aug-2021/
+   48  ls
+   49  cd 01-Docker/
+   50  ls
+   51  history 
+   52  history > Day2_History-Part-2.txt 
