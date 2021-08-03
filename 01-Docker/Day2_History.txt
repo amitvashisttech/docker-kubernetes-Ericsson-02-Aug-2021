@@ -374,3 +374,106 @@
   374  cd docker-kubernetes-Ericsson-02-Aug-2021/
   375  ls
   376  history > 01-Docker/Day2_History.txt 
+  377  git add . ; git commit -m "02-Dockerfile" ; git push 
+  378  ls
+  379  docker network ls 
+  380  docker network inspect c46d13167888
+  381  ip addr 
+  382  docker run -it --name test-1 ubuntu:16.04
+  383  docker ps 
+  384  docker exec -it aa8695fa70a5 ip addr 
+  385  docker exec -it aa8695fa70a5 ifconfig 
+  386  docker ps 
+  387  docker inspect aa8695fa70a5
+  388  docker network inspect c46d13167888
+  389  docker run -itd --name test-2 ubuntu:16.04
+  390  docker run -itd --name test-3 ubuntu:16.04
+  391  docker run -itd --name test-4 ubuntu:16.04
+  392  docker network inspect c46d13167888
+  393  docker stop "test-2"
+  394  docker network inspect c46d13167888
+  395  docker run -itd --name test-5 ubuntu:16.04
+  396  docker network inspect c46d13167888
+  397  docker start "test-2"
+  398  docker network inspect c46d13167888
+  399  ls
+  400  docker ps 
+  401  docker images 
+  402  docker run -d --name web-app-1 amitvashist7/python-web-app
+  403  docker ps 
+  404  docker inspect 556d5216dc38
+  405  curl 172.17.0.7:8081
+  406  netstat -tulnp
+  407  docker run -d --name web-app-2 -p 8081:8081 amitvashist7/python-web-app
+  408  docker ps 
+  409  netstat -tulnp 
+  410  systemctl status docker
+  411  docker run -d --name web-app-3 -p 8082:8081 amitvashist7/python-web-app
+  412  netstat -tulnp 
+  413  systemctl status docker
+  414  docker ps 
+  415  docker run -d --name web-app-4 -P amitvashist7/python-web-app
+  416  docker ps 
+  417  ls
+  418  cd 02-Dockerfile/ls
+  419  cd 02-Dockerfile/
+  420  ls
+  421  cd python-web-app/
+  422  ls
+  423  mkdir v1 
+  424  mv * v1
+  425  cp -rf v1 v2 
+  426  cd v2
+  427  ls
+  428  vim app.py 
+  429  ls
+  430  vim Dockerfile 
+  431  docker build -t python-web-app:v3  . 
+  432  docker run -d --name web-app-5 -P python-web-app:v3
+  433  docker ps 
+  434  ls
+  435  cd ..
+  436  cd 
+  437  ls
+  438  docker kill $(docker ps -aq)
+  439  docker rm $(docker ps -aq)
+  440  docker network ls 
+  441  docker network create my-net
+  442  docker network ls 
+  443  docker network  inspect my-net
+  444  ls
+  445  docker network create mybr0 --help 
+  446  docker network create mybr0 --driver=bridge --subnet=172.28.0.0/16 --ip-range=172.28.5.0/24 --gateway=172.28.5.254
+  447  docker network ls 
+  448  docker network inspect mybr0
+  449  docker run -d --name web-app-1 --network mybr0 -P python-web-app:v3
+  450  docker run -d --name web-app-2 --network mybr0 -P python-web-app:v3
+  451  docker run -d --name web-app-3 -P python-web-app:v3
+  452  docker ps 
+  453  docker inspect web-app-3
+  454  docker inspect web-app-2
+  455  docker inspect web-app-1
+  456  docker ps 
+  457  docker network ls
+  458  docker run -d --name web-with-none-nw-1  --network none -P python-web-app:v3
+  459  docker run -d --name web-with-host-nw-1  --network host -P python-web-app:v3
+  460  docker ps 
+  461  docker inspect web-with-none-nw-1
+  462  docker ps 
+  463  docker inspect web-with-host-nw-1
+  464  docker exec -it web-with-host-nw-1 ip addr 
+  465  netstat -tulnp 
+  466  docker ps 
+  467  curl localhost
+  468  curl localhost/info
+  469  docker run -d --name web-with-host-nw-2  --network host -P python-web-app:v2
+  470  netstat -tulnp
+  471  ls
+  472  cd docker-kubernetes-Ericsson-02-Aug-2021/
+  473  ls
+  474  docker ps 
+  475  docker inspect 9ae2bff4e7c0
+  476  ls
+  477  cat 02-Dockerfile/python-web-app/v2/app.py 
+  478  ls
+  479  history > 01-Docker/Day2_History.txt 
