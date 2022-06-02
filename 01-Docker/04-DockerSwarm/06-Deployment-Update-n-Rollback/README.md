@@ -1,4 +1,5 @@
-    1  docker service create --name tiny-web --replicas 3 --publish published=8001,target=80 amitvashist7/k8s-tiny-web:latest
+   ```
+   1  docker service create --name tiny-web --replicas 3 --publish published=8001,target=80 amitvashist7/k8s-tiny-web:latest
     2  docker service ls 
     3  docker service ps tiny-web
     4  docker service --help
@@ -24,3 +25,4 @@
    24  ls
    25  history 
    26  history  > 06-Deployment-Update-n-Rollback/README.md
+```
