@@ -1,4 +1,5 @@
-    1  docker service ls 
+   ```
+   1  docker service ls 
     2  docker service ps visual_visualizer
     3  docker service create --name my_web --replicas 3 amitvashist7/python-web-app
     4  docker service ls 
@@ -16,3 +17,4 @@
    16  cd 04-Visualizer/
    17  ls
    18  history > README.md
+```
