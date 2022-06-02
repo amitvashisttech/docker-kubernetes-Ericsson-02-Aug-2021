@@ -1,4 +1,5 @@
-   24  docker service ls 
+  ```
+  24  docker service ls 
    25  docker service ps my_web_2
    26  docker node ls 
    27  docker node inspect 2t6nezs718bhqn8fpadfxek68
@@ -32,3 +33,4 @@
    55  ls
    56  mkdir 05-Labels
    57  history > 05-Labels/README.md
+```
